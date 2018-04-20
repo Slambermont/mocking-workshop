@@ -17,11 +17,13 @@ describe Student do
     end
   end
 
+  let(:feedback_double) { double 'Feedback', happiness: 4 }
+
   describe '#happiness' do
     it 'returns the average happiness reported' do
-      feedback_1 = Feedback.new(4, Date.today)
-      feedback_2 = Feedback.new(4, Date.today)
-      student = Student.new(feedbacks: [feedback_1, feedback_2])
+#      feedback_1 = Feedback.new(4, Date.today)
+#      feedback_2 = Feedback.new(4, Date.today)
+      student = Student.new(feedbacks: [feedback_double, feedback_double])
 
       expect(student.happiness).to eq 4
     end

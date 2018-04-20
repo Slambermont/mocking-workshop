@@ -10,7 +10,17 @@ describe Test do
     ]
   end
 
-  subject(:test) { Test.new(Date.today, answers) }
+  let(:answer_double) { double 'Answer', correct?: true }
+
+  let(:answers_double) do
+    [
+      answer_double,
+      answer_double,
+      answer_double
+    ]
+  end
+
+  subject(:test) { Test.new(Date.today, answers_double) }
 
   describe '#pretty_date_taken' do
     it 'returns the date the test was taken, as a string' do
